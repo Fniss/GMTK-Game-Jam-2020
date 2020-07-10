@@ -2,6 +2,7 @@
 
 public class Driving : MonoBehaviour
 {
+Rigidbody2D rb2d;
 [SerializeField]
 Transform[] waypoints;
 //  SPEED
@@ -10,7 +11,7 @@ float driveSpeed;
 //  This int is the current waypoint's index.
 int currentWayPointIndex = 0;
 
-
+    void Start() => rb2d = GetComponent<Rigidbody2D>();
 
     void Update()
     {
@@ -22,6 +23,7 @@ int currentWayPointIndex = 0;
     else
     transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWayPointIndex].position, driveSpeed * Time.deltaTime);
     }
+    LookTowardsWayPoint();
     }
     void ReachNextWaypoint()
     {
@@ -38,5 +40,13 @@ int currentWayPointIndex = 0;
     Debug.Log("Tragically, the car crashed!");
     Destroy(gameObject);
     }
+    void LookTowardsWayPoint()
+    {
+    Vector3 dir = waypoints[currentWayPointIndex].position;
+    dir = dir - transform.position;
+    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    rb2d.rotation = (angle - 90f);
+    }
+
 
 }
