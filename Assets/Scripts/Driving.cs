@@ -14,10 +14,14 @@ int currentWayPointIndex = 0;
 
     void Update()
     {
+    if (currentWayPointIndex == waypoints.Length)
+    currentWayPointIndex = 0;
+    else {
     if (transform.position == waypoints[currentWayPointIndex].position)
     ReachNextWaypoint();
     else
     transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWayPointIndex].position, driveSpeed * Time.deltaTime);
+    }
     }
     void ReachNextWaypoint()
     {
