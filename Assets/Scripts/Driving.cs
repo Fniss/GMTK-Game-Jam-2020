@@ -24,6 +24,15 @@ int currentWayPointIndex = 0;
     Debug.Log("Waypoint " + currentWayPointIndex.ToString() + " reached!");
     currentWayPointIndex++;
     }
-
+    void OnCollisionEnter2D(Collision2D other)
+    {
+    if (other.gameObject.tag == "Obstacle")
+    Die();
+    }
+    void Die()
+    {
+    Debug.Log("Tragically, the car crashed!");
+    Destroy(gameObject);
+    }
 
 }
