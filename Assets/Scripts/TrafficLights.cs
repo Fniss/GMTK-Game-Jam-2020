@@ -9,6 +9,10 @@ public class TrafficLights : MonoBehaviour
     [SerializeField] private Boolean red = true;
     //the traffic signal is red for drunk driver
 
+    void Start(){
+        coll = GetComponent<BoxCollider2D>();
+	}
+
     // Update is called once per frame
     void Update()
     {
