@@ -6,7 +6,7 @@ public class TrafficLights : MonoBehaviour
 {
     private BoxCollider2D coll;
     //traffic light collider
-    [SerializeField] private Boolean red = true;
+    [SerializeField] private bool red = true;
     //the traffic signal is red for drunk driver
 
     void Start(){

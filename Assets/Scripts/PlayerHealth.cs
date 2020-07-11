@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{   //attach to drunk driver
+    public int currentHealth = 10;
+    public int maxHealth = 10;
+    private StillObstacles stillObstacles;
+    private BoxCollider2D coll;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private void Start(){
+        coll = GetComponent<BoxCollider2D>();
+        stillObstacles = GetComponent<StillObstacles>();
+	}
+     
+     private void Update(){
+        OnTriggerEnter2D();
+	 }
+    private void OnTriggerEnter2D(){
+        if(gameObject.tag == "StillObstacles")
+            currentHealth = currentHealth - stillObstacles.damage;
+	}
 }
