@@ -9,7 +9,11 @@ public bool canMove = true;
 public Transform wayPoint1;
 public Transform wayPoint2;
 int currentWaypoint = 1;
+public SpriteRenderer lockSprite;
 
+private void Start(){
+    lockSprite = GetComponent<SpriteRenderer>();
+}
 
 public float driveSpeed;
 
@@ -21,11 +25,14 @@ public float driveSpeed;
     }
     void Update()
     {
-    if (transform.position == wayPoint1.position)
+    if (transform.position == wayPoint1.position){
     currentWaypoint++;
-    else if (transform.position == wayPoint2.position)
+    lockSprite.enabled = false;
+    }
+    else if (transform.position == wayPoint2.position){
     currentWaypoint--;
-
+    lockSprite.enabled = true;
+    }
     if (canMove)
     {
     switch (currentWaypoint)
