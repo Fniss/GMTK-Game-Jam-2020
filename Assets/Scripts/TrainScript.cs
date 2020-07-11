@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class TrainScript : MonoBehaviour
 {
+Rigidbody2D rb2d;
 public Transform[] wayPoints;
 float trainDriveSpeed = 3f;
 public float trainDriveSpeedValue = 3f;
 int wayPointReached = 0;
+
+    void Start() => rb2d = GetComponent<Rigidbody2D>();
+
 
     void Update()
     {
@@ -18,6 +22,12 @@ int wayPointReached = 0;
     wayPointReached++;
     else
     transform.position = Vector2.MoveTowards(transform.position, wayPoints[wayPointReached].position, trainDriveSpeed * Time.deltaTime);
+    if (wayPointReached == wayPoints.Length)
+    wayPointReached = 0;
+    Vector3 dir = wayPoints[wayPointReached].position;
+    dir = dir - transform.position;
+    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    rb2d.rotation = (angle - 90f);
     }
     void OnMouseOver()
     {
