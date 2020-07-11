@@ -6,19 +6,21 @@ public class PlayerHealth : MonoBehaviour
 {   //attach to drunk driver
     public int currentHealth = 10;
     public int maxHealth = 10;
-    private StillObstacles stillObstacles;
+   
     private BoxCollider2D coll;
 
     private void Start(){
         coll = GetComponent<BoxCollider2D>();
-        stillObstacles = GetComponent<StillObstacles>();
+        
 	}
      
-     private void Update(){
-        OnTriggerEnter2D();
-	 }
-    private void OnTriggerEnter2D(){
-        if(gameObject.tag == "StillObstacles")
-            currentHealth = currentHealth - stillObstacles.damage;
-	}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+    if (other.CompareTag("StillObstacle"))
+    {
+    currentHealth -= other.GetComponent<StillObstacles>().damage;
+    Debug.Log("We hit an obstacle!");
+    }
+    }
+
 }

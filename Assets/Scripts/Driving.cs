@@ -42,6 +42,8 @@ int currentWayPointIndex = 0;
     }
     void LookTowardsWayPoint()
     {
+    if (currentWayPointIndex == waypoints.Length)
+    currentWayPointIndex = 0;
     Vector3 dir = waypoints[currentWayPointIndex].position;
     dir = dir - transform.position;
     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
