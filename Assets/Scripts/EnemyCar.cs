@@ -5,19 +5,25 @@ using UnityEngine;
 public class EnemyCar : MonoBehaviour
 {
 bool canStopCar = true;
-bool canMove = true;
+public bool canMove = true;
 public Transform wayPoint1;
 public Transform wayPoint2;
-int currentWaypoint;
+int currentWaypoint = 1;
 public float driveSpeed;
+
 
     void OnMouseDown()
     {
     if (canStopCar)
-    canMove = false;
+    StopCar();
     }
     void Update()
     {
+    if (transform.position == wayPoint1.position)
+    currentWaypoint++;
+    else if (transform.position == wayPoint2.position)
+    currentWaypoint--;
+
     if (canMove)
     {
     switch (currentWaypoint)
@@ -30,19 +36,14 @@ public float driveSpeed;
     break;
     }
     }
-    if (transform.position == wayPoint1.position || transform.position == wayPoint2.position)
+    }
+    void StopCar()
     {
-    switch (currentWaypoint)
+    canMove = false;
+    Invoke("StartCar", Random.Range(2f, 5f));
+    }
+    void StartCar()
     {
-    case 1:
-    currentWaypoint++;
-    break;
-    case 2:
-    currentWaypoint--;
-    break;
+    canMove = true;
     }
-    }
-    }
-
-
 }

@@ -6,6 +6,11 @@ public class AudioManager : MonoBehaviour
 {
 public Sound[] sounds;
     
+    void Start()
+    {
+    Play("Theme");
+    }
+
     void Awake()
     {
     foreach (Sound s in sounds)
@@ -15,13 +20,17 @@ public Sound[] sounds;
     s.source.clip = s.clip;
     s.source.volume = s.volume;
     s.source.pitch = s.pitch;
+    s.source.loop = s.loop;
     }
     }
     public void Play(string name)
     {
     //  Find the sound that has the same name as the name provided.
-    Sound s = Array.Find(sounds, _ => _.name == name);
+    Sound _s = Array.Find(sounds, sound => sound.name == name);
     //  Play the sound via its source.
-    s.source.Play();
+    if (_s != null)
+    _s.source.Play();
+    else
+    Debug.LogWarning("Sound: " + name + " not found! Please check that it is spelled correctly.");
     }
 }
