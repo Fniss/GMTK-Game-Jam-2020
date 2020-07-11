@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
      
     void OnTriggerEnter2D(Collider2D other)
     {
-    if (other.CompareTag("StillObstacle"))
+    if (other.CompareTag("StillObstacles"))
     {
     currentHealth -= other.GetComponent<StillObstacles>().damage;
     Debug.Log("We hit an obstacle!");
