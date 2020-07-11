@@ -3,24 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
-{   //attach to drunk driver
-    public int currentHealth = 10;
-    public int maxHealth = 10;
-   
-    private BoxCollider2D coll;
+{   
+    [Header("Health")]
+    public int currentHealth = 3;
+    public int maxHealth = 3;
+    [Header("References")]
+    public GameManager gM;
 
-    private void Start(){
-        coll = GetComponent<BoxCollider2D>();
-        
-	}
+    void Update()
+    {
+    if (currentHealth == 0)
+    Die();
+    }
      
     void OnTriggerEnter2D(Collider2D other)
     {
     if (other.CompareTag("StillObstacles"))
     {
-    currentHealth -= other.GetComponent<StillObstacles>().damage;
+    currentHealth -= 1;
     Debug.Log("We hit an obstacle!");
     }
     }
+    void Die()
+    {
+    gM.GameOver();
+    }
+
 
 }

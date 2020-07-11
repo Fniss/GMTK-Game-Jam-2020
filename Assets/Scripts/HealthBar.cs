@@ -12,27 +12,14 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider = GetComponent<Slider>();
+    slider = GetComponent<Slider>();
     }
 
     // Update is called once per frame
     void Update() 
     {
-        // if(slider.value <= slider.minValue){
-        //     fillImage.enabled = false;  
-		// }
-        // if(slider.value > slider.minValue && !fillImage.enabled){
-        //     fillImage.enabled = true;  
-		// }
-        // float fillValue = playerHealth.currentHealth / playerHealth.maxHealth;
-        // if(fillValue <= slider.maxValue / 3){
-        //     fillImage.color = Color.white;  
-		// }
-        // else if(fillValue >slider.maxValue / 3){
-        //     fillImage.color = Color.red;  
-		// }
-
-        // slider.value = fillValue;
-       slider.value = playerHealth.currentHealth;
+        //  Set the slider value to the player's health
+    slider.value = playerHealth.currentHealth;
+    slider.maxValue = playerHealth.maxHealth;
     }
 }

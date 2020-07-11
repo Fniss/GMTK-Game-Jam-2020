@@ -31,6 +31,7 @@ public Sound[] sounds;
     if (_s != null)
     _s.source.Play();
     else
+    //  If the sound isn't found, throw a warning message.
     Debug.LogWarning("Sound: " + name + " not found! Please check that it is spelled correctly.");
     }
 }

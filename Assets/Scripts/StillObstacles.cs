@@ -10,12 +10,6 @@ public class StillObstacles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        coll = GetComponent<BoxCollider2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    
+    coll = GetComponent<BoxCollider2D>();
     }
 }
