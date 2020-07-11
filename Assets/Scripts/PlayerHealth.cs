@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     if (other.CompareTag("StillObstacles"))
     {
     currentHealth -= 1;
+    FindObjectOfType<AudioManager>().Play("Crash");
     Debug.Log("We hit an obstacle!");
     }
     }
