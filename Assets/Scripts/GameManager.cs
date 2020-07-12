@@ -21,6 +21,10 @@ public int health = 3;
     {
     if (health == 0)
     GameOver();
+    if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Q))
+    {
+        GameOver();
+    }
     }
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCar : MonoBehaviour
+public class EnemyCar : BaseObstacle
 {
 bool canStopCar = true;
 public float stopDistance;
@@ -33,7 +33,11 @@ public float driveSpeed;
         timer += Time.deltaTime;
 
         if (timer > lifetime)
-        { Destroy (gameObject);}
+        { 
+            if (!hasDoneDamage)
+                FindObjectOfType<PlayerHealth>().currentPoints+= pointsValue;
+            Destroy (gameObject);
+        }
         RaycastHit2D[] hit2Ds = new RaycastHit2D[2];
         if (Physics2D.Raycast(transform.position,transform.up,new ContactFilter2D(), hit2Ds,stopDistance)>1)
         {

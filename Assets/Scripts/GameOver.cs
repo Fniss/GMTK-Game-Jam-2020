@@ -8,7 +8,7 @@ public TextMeshProUGUI scoreText;
 
     public void OnEnable()
     {
-    scoreText.text = PlayerPrefs.GetInt("Score", 0).ToString();
+        scoreText.text = FindObjectOfType<PlayerHealth>().currentPoints.ToString();
     }
 
     public void Restart()

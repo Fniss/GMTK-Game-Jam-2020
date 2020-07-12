@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainScript : MonoBehaviour
+public class TrainScript : BaseObstacle
 {
 Rigidbody2D rb2d;
 public Transform[] wayPoints;
@@ -26,6 +26,11 @@ int wayPointReached = 0;
         wayPointReached = 0;
         transform.position = startPosition;
         ResetSpeed();
+        if (!hasDoneDamage)
+        {
+                FindObjectOfType<PlayerHealth>().currentPoints+= pointsValue;
+        }
+        hasDoneDamage = false;
     }
 
     if (Vector2.Distance(transform.position, wayPoints[wayPointReached].position) < 3f)

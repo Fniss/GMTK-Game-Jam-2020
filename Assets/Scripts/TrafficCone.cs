@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TrafficCone : MonoBehaviour, IBeginDragHandler,IEndDragHandler, IDragHandler
+public class TrafficCone : BaseObstacle, IBeginDragHandler,IEndDragHandler, IDragHandler
 {
 public Camera cam;
 bool isDragging = false;
+
+public float timer, lifetime;
 
     void Awake()
     {
@@ -14,6 +16,16 @@ bool isDragging = false;
     }
     void Update()
     {
+        timer += Time.deltaTime;
+
+        if (timer > lifetime)
+        { 
+            if (!hasDoneDamage)
+                FindObjectOfType<PlayerHealth>().currentPoints+= pointsValue;
+
+                Destroy(gameObject);
+        }
+
     // Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition);
     // pos.z = 0f;
     // if (isDragging)
