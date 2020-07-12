@@ -472,22 +472,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795ee283ede7bcb44a9e341c87254bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music: {fileID: 84830572}
-  restart: {fileID: 1597947450}
-  quit: {fileID: 1703240123}
-  play: {fileID: 150261687}
-  pause: {fileID: 10117916}
-  m: {fileID: 84830575}
-  r: {fileID: 1597947453}
-  q: {fileID: 1703240126}
-  pl: {fileID: 150261690}
-  pa: {fileID: 10117919}
-  mu: {fileID: 21300000, guid: d4b4c9d10d60e1344a5697890b76ef05, type: 3}
-  re: {fileID: 21300000, guid: 37b8ab6d7c1d7f043822ad855fa089e4, type: 3}
-  qu: {fileID: 21300000, guid: bf2aa5ebf19b1794a8a9f1e49d51be19, type: 3}
-  pla: {fileID: 21300000, guid: df0f3e73bf5f77440af7cc8a5369b825, type: 3}
-  pau: {fileID: 21300000, guid: cc85c9fa9db499c48a28d6b0a0be974b, type: 3}
-  active: 0
+  button: {fileID: 84830572}
+  rend: {fileID: 84830575}
+  active: {fileID: 21300000, guid: d65c817c5cfc9d74a815894c8e0bccae, type: 3}
+  inactive: {fileID: 21300000, guid: d4b4c9d10d60e1344a5697890b76ef05, type: 3}
+  on: 0
 --- !u!1 &150261685
 GameObject:
   m_ObjectHideFlags: 0

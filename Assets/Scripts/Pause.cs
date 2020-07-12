@@ -4,26 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
     
 public class Pause : MonoBehaviour{
-    public Button music, restart, quit, play, pause; 
-    public SpriteRenderer m, r, q, pl, pa;
-    public Sprite mu, re, qu, pla, pau;
-    public bool active = false;
-    private Sprite temp, temp2, temp3, temp4, temp5;
+    public Button button; 
+    public SpriteRenderer rend;
+    public Sprite active, inactive;
+    public bool on = false;
 
     void Start(){
-        m = GetComponent<SpriteRenderer>();
-        r = GetComponent<SpriteRenderer>();
-        q = GetComponent<SpriteRenderer>();
-        pl = GetComponent<SpriteRenderer>();
-        pa = GetComponent<SpriteRenderer>();
+        rend = GetComponent<SpriteRenderer>();
 
-        mu = Resources.Load<Sprite>("Layer_8_copy_4");
-        re = Resources.Load<Sprite>("Layer_10_copy");
-        qu = Resources.Load<Sprite>("Layer_11_copy");
-        pla = Resources.Load<Sprite>("Layer_12_copy");
-        pau = Resources.Load<Sprite>("Layer_12_copy");
-
-        
+        active = Resources.Load<Sprite>("Layer_8_copy_3");
+        inactive = Resources.Load<Sprite>("Layer_8_copy_4");
 	}
         void Update(){
         OnEnable();  
@@ -31,40 +21,21 @@ public class Pause : MonoBehaviour{
  
     	void OnEnable()
     	{
-    		music.onClick.AddListener(ChangeSound);
-            restart.onClick.AddListener(ChangeRestart);
-            quit.onClick.AddListener(ChangeQuit);
-            play.onClick.AddListener(ChangePlay);
-            pause.onClick.AddListener(ChangePause);
+    		button.onClick.AddListener(Change);
     	}
 
-    	void ChangeSound()
+    	void Change()
     	{
-            temp = m.sprite;
-            if(!active){
-                m.sprite = mu;
-                active = true;
+
+            if(!on){
+                rend.sprite = active;
+                on = true;
 			}
             else{
-            m.sprite = temp;
-            active = false;
+                rend.sprite = inactive;
+                on = false;
 			}
           
     	}
-        void ChangeRestart()
-    	{
-            r.sprite = re;
-    	}
-        void ChangeQuit()
-    	{
-            q.sprite = qu;
-    	}
-        void ChangePlay()
-    	{
-            pl.sprite = pla;
-    	}
-        void ChangePause()
-    	{
-            pa.sprite = pau;
-    	}
+   
 }
