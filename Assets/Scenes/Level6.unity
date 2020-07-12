@@ -994,75 +994,6 @@ Transform:
   m_Father: {fileID: 1525315271}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &395007804
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2079351029376874291, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_Name
-      value: Traffic Cone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.5966454
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.78623563
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2079351029376874294, guid: 00bf8b49c7fe241baa14672310a58280,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 00bf8b49c7fe241baa14672310a58280, type: 3}
 --- !u!1 &408407106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,7 +1749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6439835, y: -5.39267, z: -10}
+  m_LocalPosition: {x: 0.63598406, y: -5.393572, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2010,7 +1941,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552779932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -162.7, y: 25.3, z: 0}
+  m_LocalPosition: {x: -162.7, y: 25.3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 217887718}
@@ -2894,6 +2825,10 @@ MonoBehaviour:
   - {fileID: 533858648}
   driveSpeed: 7.18
   rotationSpeed: 2
+  drivingSprintSpeed: 13
+  sprintDuration: 3
+  sprintTimer: -13
+  sprintCooldown: 20
 --- !u!212 &953933952
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3997,7 +3932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1338428793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -157.6, y: -27.7, z: 0}
+  m_LocalPosition: {x: -157.6, y: -27.7, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 217887718}
@@ -4636,7 +4571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436379578}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -152.6, y: -27.7, z: 0}
+  m_LocalPosition: {x: -152.6, y: -27.7, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 217887718}
@@ -4699,7 +4634,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457235767}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -159.9, y: 25.3, z: 0}
+  m_LocalPosition: {x: -159.9, y: 25.3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 217887718}
@@ -4720,10 +4655,10 @@ MonoBehaviour:
   car: []
   truck: []
   coneRows:
-  - {fileID: 4039092960685527733, guid: 47f65d4640dfb524a911474edd18420b, type: 3}
   - {fileID: 4039092960685527733, guid: 2b3eee0854349984f9010e90549acffe, type: 3}
   - {fileID: 4039092960685527733, guid: 0763eebe9f190024396fa7ab58a22187, type: 3}
   - {fileID: 4039092960685527733, guid: 71f7b671c3e391b4fa1e9a9f24b1cf4a, type: 3}
+  - {fileID: 4039092960685527733, guid: 47f65d4640dfb524a911474edd18420b, type: 3}
   ConeSpawn: 1
   chanceToSpawn: 0.01
   rateOfTrucks: 0
@@ -5981,7 +5916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041994670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -167.7, y: 25.3, z: 0}
+  m_LocalPosition: {x: -167.7, y: 25.3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 217887718}
