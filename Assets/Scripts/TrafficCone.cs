@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TrafficCone : BaseObstacle, IBeginDragHandler,IEndDragHandler, IDragHandler
+public class TrafficCone : BaseObstacle//, IBeginDragHandler,IEndDragHandler, IDragHandler, IPointerEnterHandler
 {
 public Camera cam;
 bool isDragging = false;
@@ -26,19 +26,19 @@ public float timer, lifetime;
                 Destroy(gameObject);
         }
 
-    // Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition);
-    // pos.z = 0f;
-    // if (isDragging)
-    // transform.position = pos;
+    Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition);
+    pos.z = 0f;
+    if (isDragging)
+    transform.position = pos;
     }
-    // void OnMouseDown()
-    // {
-    // isDragging = true;
-    // }
-    // void OnMouseUp()
-    // {
-    // isDragging = false;
-    // }
+    void OnMouseDown()
+    {
+    isDragging = true;
+    }
+    void OnMouseUp()
+    {
+    isDragging = false;
+    }
 
     // public void OnPointerDown(PointerEventData eventData)
     // {
@@ -50,15 +50,20 @@ public float timer, lifetime;
     // isDragging = false;
     // }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position += (Vector3)eventData.delta;
-    }
+    // public void OnDrag(PointerEventData eventData)
+    // {
+    //     transform.position += (Vector3)eventData.delta;
+    // }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-    }
+    // public void OnBeginDrag(PointerEventData eventData)
+    // {
+    // }
 
-    public void OnEndDrag(PointerEventData eventData){
-    }
+    // public void OnEndDrag(PointerEventData eventData){
+    // }
+
+    // public void OnPointerEnter(PointerEventData eventData)
+    // {
+    //     Debug.Log("rest" +  name);
+    // }
 }
