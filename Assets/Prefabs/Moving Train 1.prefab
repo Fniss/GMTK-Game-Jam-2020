@@ -72,12 +72,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d5094615593254850a155a57dff84417, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7b5dea2e2a229e4ea6c8984e3a34e5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 19.14, y: 3.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -101,7 +101,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 10.8, y: 1.85}
-    newSize: {x: 0.2, y: 0.2}
+    newSize: {x: 19.14, y: 3.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -118,12 +118,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4714792818155314416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e251e052b0d4f60bdc31fcb5318fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3da363eeb770a754e9fbfbd2a872f59c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wayPoints:
-  - {fileID: 4714792819734038343}
-  - {fileID: 4714792818210630510}
+  wayPoints: []
   startPosition: {x: 0, y: 0, z: 0}
   trainDriveSpeedValue: 0.1
 --- !u!1 &4714792818210630481
