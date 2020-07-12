@@ -30,6 +30,10 @@ public float timer, lifetime;
     pos.z = 0f;
     if (isDragging)
     transform.position = pos;
+    if (Input.GetMouseButtonDown(0)){
+    RaycastHit2D test =Physics2D.Raycast(cam.ViewportToWorldPoint(Input.mousePosition),Vector3.forward,100);
+    Debug.Log(test.collider);
+    }
     }
     void OnMouseDown()
     {
