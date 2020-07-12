@@ -20,6 +20,7 @@ bool isDragging = false;
     }
     void OnMouseDown()
     {
+        Debug.Log("Clickd");
     isDragging = true;
     }
     void OnMouseUp()
