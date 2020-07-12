@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyCar : MonoBehaviour
 {
 bool canStopCar = true;
+public float stopDistance;
 public bool canMove = true;
 public Transform wayPoint1;
 public Transform wayPoint2;
@@ -34,7 +35,7 @@ public float driveSpeed;
         if (timer > lifetime)
         { Destroy (gameObject);}
         RaycastHit2D[] hit2Ds = new RaycastHit2D[2];
-        if (Physics2D.Raycast(transform.position,transform.up,new ContactFilter2D(), hit2Ds,4f)>1)
+        if (Physics2D.Raycast(transform.position,transform.up,new ContactFilter2D(), hit2Ds,stopDistance)>1)
         {
             foreach (var h in hit2Ds)
             {

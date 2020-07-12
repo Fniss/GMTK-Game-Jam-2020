@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385d5aef7295d47daa5bc91cccd4c9ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopDistance: 8
   canMove: 1
   wayPoint1: {fileID: 0}
   wayPoint2: {fileID: 0}
