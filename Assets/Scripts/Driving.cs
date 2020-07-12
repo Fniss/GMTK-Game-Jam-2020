@@ -7,7 +7,7 @@ Rigidbody2D rb2d;
 Transform[] waypoints;
 //  SPEED
 [SerializeField]
-float driveSpeed;
+float driveSpeed, rotationSpeed;
 //  This int is the current waypoint's index.
 int currentWayPointIndex = 0;
 
@@ -47,7 +47,7 @@ int currentWayPointIndex = 0;
     Vector3 dir = waypoints[currentWayPointIndex].position;
     dir = dir - transform.position;
     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-    rb2d.rotation = (angle - 90f);
+    rb2d.rotation = Mathf.Lerp(rb2d.rotation,(angle - 90f),Time.deltaTime*rotationSpeed);
     }
 
 

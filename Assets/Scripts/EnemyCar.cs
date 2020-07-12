@@ -12,6 +12,7 @@ int currentWaypoint = 1;
 public SpriteRenderer lockSprite;
 private BoxCollider2D coll;
 
+public bool goingUp;
 private void Start(){
     lockSprite = GetComponent<SpriteRenderer>();
     coll = GetComponent<BoxCollider2D>();
@@ -26,9 +27,7 @@ public float driveSpeed;
     StopCar();
     }
     void Update()
-    {
-   
-	
+    {	
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale = 0; - pauses drunk driver's car
@@ -43,27 +42,32 @@ public float driveSpeed;
 
 
 
-    if (transform.position == wayPoint1.position){
-    currentWaypoint++;
-    lockSprite.enabled = false;
-    coll.enabled = false;
-    }
-    else if (transform.position == wayPoint2.position){
-    currentWaypoint--;
-    lockSprite.enabled = true;
-    coll.enabled = true;
-    }
+    // if (transform.position == wayPoint1.position){
+    // currentWaypoint++;
+    
+    // // coll.enabled = false;
+    // }
+    // else if (transform.position == wayPoint2.position){
+    // currentWaypoint--;
+    // lockSprite.enabled = true;
+    // coll.enabled = true;
+    // Destroy(gameObject);
+    // }
     if (canMove)
     {
-    switch (currentWaypoint)
-    {
-    case 1:
-    transform.position = Vector2.MoveTowards(transform.position, wayPoint1.position, driveSpeed);
-    break;
-    case 2:
-    transform.position = Vector2.MoveTowards(transform.position, wayPoint2.position, driveSpeed);
-    break;
-    }
+    // switch (currentWaypoint)
+    // {
+    // case 1:
+    // transform.position = Vector2.MoveTowards(transform.position, wayPoint1.position, driveSpeed);
+    // break;
+    // case 2:
+    // transform.position = Vector2.MoveTowards(transform.position, wayPoint2.position, driveSpeed);
+    // break;
+    // }
+        if (goingUp)
+            transform.position += Vector3.up* driveSpeed*Time.deltaTime;
+        else
+            transform.position += Vector3.down* driveSpeed*Time.deltaTime;
     }
     }
     void StopCar()
