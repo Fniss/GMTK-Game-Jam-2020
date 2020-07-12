@@ -11,6 +11,7 @@ public Transform wayPoint2;
 int currentWaypoint = 1;
 public SpriteRenderer lockSprite;
 private BoxCollider2D coll;
+public float timer, lifetime;
 
 public bool goingUp;
 private void Start(){
@@ -28,6 +29,10 @@ public float driveSpeed;
     }
     void Update()
     {	
+        timer += Time.deltaTime;
+
+        if (timer > lifetime)
+        { Destroy (gameObject);}
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale = 0; - pauses drunk driver's car

@@ -125,5 +125,7 @@ MonoBehaviour:
   wayPoint1: {fileID: 0}
   wayPoint2: {fileID: 0}
   lockSprite: {fileID: 0}
+  timer: 0
+  lifetime: 15
   goingUp: 0
   driveSpeed: 14
