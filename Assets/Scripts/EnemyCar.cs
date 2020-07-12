@@ -10,9 +10,11 @@ public Transform wayPoint1;
 public Transform wayPoint2;
 int currentWaypoint = 1;
 public SpriteRenderer lockSprite;
+private BoxCollider2D coll;
 
 private void Start(){
     lockSprite = GetComponent<SpriteRenderer>();
+    coll = GetComponent<BoxCollider2D>();
 }
 
 public float driveSpeed;
@@ -25,13 +27,31 @@ public float driveSpeed;
     }
     void Update()
     {
+   
+	
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //Time.timeScale = 0; - pauses drunk driver's car
+            StopCar(); 
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            //Time.timeScale = 1;
+            canMove = true;
+        }
+
+
+
     if (transform.position == wayPoint1.position){
     currentWaypoint++;
     lockSprite.enabled = false;
+    coll.enabled = false;
     }
     else if (transform.position == wayPoint2.position){
     currentWaypoint--;
     lockSprite.enabled = true;
+    coll.enabled = true;
     }
     if (canMove)
     {
@@ -49,7 +69,7 @@ public float driveSpeed;
     void StopCar()
     {
     canMove = false;
-    Invoke("StartCar", Random.Range(2f, 5f));
+    //Invoke("StartCar", Random.Range(2f, 5f));
     }
     void StartCar()
     {
