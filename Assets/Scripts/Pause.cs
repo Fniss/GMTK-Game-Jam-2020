@@ -18,7 +18,6 @@ public class Pause : MonoBehaviour{
         void Update(){
         OnEnable();  
 		}
- 
     	void OnEnable()
     	{
     		button.onClick.AddListener(Change);
