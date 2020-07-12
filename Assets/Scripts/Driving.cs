@@ -7,7 +7,7 @@ Rigidbody2D rb2d;
 Transform[] waypoints;
 //  SPEED
 [SerializeField]
-float driveSpeed, rotationSpeed;
+float driveSpeed, rotationSpeed, drivingSprintSpeed, sprintDuration,sprintTimer,sprintCooldown;
 //  This int is the current waypoint's index.
 int currentWayPointIndex = 0;
 
@@ -15,13 +15,23 @@ int currentWayPointIndex = 0;
 
     void Update()
     {
+        sprintTimer += Time.deltaTime;
     if (currentWayPointIndex == waypoints.Length)
     currentWayPointIndex = 0;
     else {
     if (transform.position == waypoints[currentWayPointIndex].position)
     ReachNextWaypoint();
-    else
-    transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWayPointIndex].position, driveSpeed * Time.deltaTime);
+    else{
+        if (sprintTimer>0){
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWayPointIndex].position, drivingSprintSpeed * Time.deltaTime);
+            if (sprintTimer >= sprintDuration)
+            sprintTimer =-sprintCooldown*(.5f+Random.value);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWayPointIndex].position, driveSpeed * Time.deltaTime);
+        }
+        }
     }
     LookTowardsWayPoint();
     }

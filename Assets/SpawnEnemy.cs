@@ -35,8 +35,11 @@ public class SpawnEnemy : MonoBehaviour
             }
             else 
             {
-                GameObject spawn = Instantiate (coneRows[Random.Range(0,coneRows.Length)], transform.position, Quaternion.identity);
                 
+                GameObject spawn = Instantiate (coneRows[Random.Range(0,coneRows.Length)], transform.position, Quaternion.identity);
+                foreach (var c in spawn.transform.GetComponentsInChildren<TrafficCone>()){
+                    c.cam = Camera.main;
+                }
                 timer = cooldown;
             }
         }

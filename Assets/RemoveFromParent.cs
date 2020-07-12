@@ -9,7 +9,7 @@ public class RemoveFromParent : MonoBehaviour
     {
         while (transform.childCount >0)
         {
-            var t =             transform.GetChild(0);
+            var t = transform.GetChild(0);
             t.SetParent (null);
 
             t.SetAsLastSibling();

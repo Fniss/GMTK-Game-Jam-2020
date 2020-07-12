@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TrafficCone : MonoBehaviour
+public class TrafficCone : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
-Camera cam;
+public Camera cam;
 bool isDragging = false;
 
-    void Start()
+    void Awake()
     {
-    cam = Camera.main;
+    cam = FindObjectOfType	<Camera>();
     }
     void Update()
     {
@@ -20,7 +21,6 @@ bool isDragging = false;
     }
     void OnMouseDown()
     {
-        Debug.Log("Clickd");
     isDragging = true;
     }
     void OnMouseUp()
@@ -28,7 +28,13 @@ bool isDragging = false;
     isDragging = false;
     }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+    isDragging = true;
+    }
 
-
-
+    public void OnPointerUp(PointerEventData eventData)
+    {
+    isDragging = false;
+    }
 }
