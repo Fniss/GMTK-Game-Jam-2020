@@ -33,6 +33,15 @@ public float driveSpeed;
 
         if (timer > lifetime)
         { Destroy (gameObject);}
+        RaycastHit2D[] hit2Ds = new RaycastHit2D[2];
+        if (Physics2D.Raycast(transform.position,transform.up,new ContactFilter2D(), hit2Ds,4f)>1)
+        {
+            foreach (var h in hit2Ds)
+            {
+                if (h.collider.transform != transform)
+                    StopCar();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //Time.timeScale = 0; - pauses drunk driver's car
@@ -84,4 +93,6 @@ public float driveSpeed;
     {
     canMove = true;
     }
+    
+    
 }
