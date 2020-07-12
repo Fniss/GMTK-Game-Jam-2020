@@ -6,15 +6,14 @@ public class BaseObstacle : MonoBehaviour
 {
     public int pointsValue = 1    ;
         public bool hasDoneDamage = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+        public GameObject onDestroy;
+        public bool doesBreak=true;
+    // Start is called before the first frame update
+    public void DestroyNow()
     {
-        
+        Instantiate(onDestroy,transform.position, Quaternion.identity);
+        if (doesBreak)
+            Destroy (gameObject);
     }
 }

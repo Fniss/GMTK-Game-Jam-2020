@@ -121,8 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e251e052b0d4f60bdc31fcb5318fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  pointsValue: 1
   hasDoneDamage: 0
+  onDestroy: {fileID: 311708607299398525, guid: 99179646bc5a9344d8c467a927a9f353,
+    type: 3}
+  doesBreak: 0
   wayPoints:
   - {fileID: 4714792819734038343}
   - {fileID: 4714792818210630510}

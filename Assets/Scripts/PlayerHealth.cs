@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<Animator>().SetFloat ("PlayerHealth", currentHealth);
         FindObjectOfType<AudioManager>().Play("Crash");
         Debug.Log("We hit an obstacle!");
-        //currentPoints -= other.GetComponent<BaseObstacle>().damageAmount;
+        other.GetComponent<BaseObstacle>().DestroyNow();
         other.GetComponent<BaseObstacle>().hasDoneDamage = true;
     }
     }

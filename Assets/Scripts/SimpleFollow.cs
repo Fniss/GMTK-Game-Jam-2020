@@ -15,6 +15,6 @@ public class SimpleFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(offset.x,target.transform.position.y, offset.z);
+        transform.position = new Vector3(offset.x,target.transform.position.y+offset.y, offset.z);
     }
 }
