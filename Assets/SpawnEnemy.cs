@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject car,truck;
+    public GameObject[] coneRows;
+    public bool ConeSpawn;
     public float chanceToSpawn;
     public float rateOfTrucks;
     public bool sendUp;
@@ -21,12 +23,21 @@ public class SpawnEnemy : MonoBehaviour
         timer -= Time.deltaTime;
         if (Random.value < chanceToSpawn && timer <=0)
         {
-            GameObject spawn = Random.value < rateOfTrucks? Instantiate(truck, transform.position, Quaternion.identity):Instantiate(car,transform.position,Quaternion.identity);
-            spawn.GetComponent<EnemyCar>().goingUp = sendUp;
-            timer = cooldown;
-            if (!sendUp)
+            if (!ConeSpawn)
             {
-                spawn.transform.Rotate(-Vector3.forward, 180);
+                GameObject spawn = Random.value < rateOfTrucks? Instantiate(truck, transform.position, Quaternion.identity):Instantiate(car,transform.position,Quaternion.identity);
+                spawn.GetComponent<EnemyCar>().goingUp = sendUp;
+                timer = cooldown;
+                if (!sendUp)
+                {
+                    spawn.transform.Rotate(-Vector3.forward, 180);
+                }
+            }
+            else 
+            {
+                GameObject spawn = Instantiate (coneRows[Random.Range(0,coneRows.Length)], transform.position, Quaternion.identity);
+                
+                timer = cooldown;
             }
         }
     }
