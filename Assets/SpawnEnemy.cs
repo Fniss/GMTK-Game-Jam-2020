@@ -8,6 +8,7 @@ public class SpawnEnemy : MonoBehaviour
     public float chanceToSpawn;
     public float rateOfTrucks;
     public bool sendUp;
+    public float cooldown, timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +18,12 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Random.value < chanceToSpawn)
+        timer -= Time.deltaTime;
+        if (Random.value < chanceToSpawn && timer <=0)
         {
             GameObject spawn = Random.value < rateOfTrucks? Instantiate(truck, transform.position, Quaternion.identity):Instantiate(car,transform.position,Quaternion.identity);
             spawn.GetComponent<EnemyCar>().goingUp = sendUp;
-
+            timer = cooldown;
             if (!sendUp)
             {
                 spawn.transform.Rotate(-Vector3.forward, 180);

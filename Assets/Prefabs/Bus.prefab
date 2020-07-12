@@ -128,4 +128,4 @@ MonoBehaviour:
   timer: 0
   lifetime: 15
   goingUp: 0
-  driveSpeed: 10
+  driveSpeed: 12
